@@ -2,7 +2,7 @@
   <div class="app">
     <template v-if="this.$data.IsHideNavigation === false">
       <Nav></Nav>
-      <el-row :gutter="5">
+      <div class="body">
         <el-col :span="3">
           <el-menu
               :uniqueOpened="true"
@@ -42,10 +42,11 @@
 
           </el-menu>
         </el-col>
-        <el-col :span="24-3">
+        <el-col :span="24-3" class="el-main">
           <router-view/>
         </el-col>
-      </el-row>
+      </div>
+
     </template>
     <template v-if="this.$data.IsHideNavigation === true">
 
@@ -69,17 +70,23 @@ export default {
       menu: [
         {
           id: 1,
-          title: '菜单1',
+          title: '文章管理',
           icon: 'location',
-
           sub: [
             {
               id: 1,
-              title: 'About',
+              title: '文章列表',
               icon: 'location',
-              path: '/About',
+              path: '/article',
               sub: []
-            }
+            },
+            {
+              id: 2,
+              title: '分类管理',
+              icon: 'location',
+              path: '/classify',
+              sub: []
+            },
           ]
         },
         {
@@ -130,11 +137,6 @@ export default {
   margin: 0;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-
-}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -142,6 +144,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  .body{
+    display:flex;
+  }
 }
 
 </style>

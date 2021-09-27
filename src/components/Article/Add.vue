@@ -46,7 +46,6 @@ import {watch} from "vue";
 export default {
   props: {
     status: Boolean,
-    id: Number,
     closed: Function
   },
   data() {
@@ -101,5 +100,5 @@ export default {
 
 <style scoped>
 
-@import "edit.less";
+@import "add.less";
 </style>

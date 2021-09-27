@@ -13,7 +13,7 @@
       <div class="name el-col-2">kin</div>
     </div>
     <div class="signOut">
-      <el-button size="small" @click="signOut">退出</el-button>
+      <el-button size="mini" @click="signOut">退出</el-button>
     </div>
   </div>
   </el-affix>

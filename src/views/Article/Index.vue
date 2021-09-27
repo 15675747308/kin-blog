@@ -3,10 +3,10 @@
 
     <div class="head">
       <div class="l">
-        <el-button size="mini">添加</el-button>
+        <el-button size="mini" @click="add.status = true">添加</el-button>
       </div>
       <div class="r">
-        <el-input placeholder="请输入" class="search" size="small">
+        <el-input placeholder="请输入" v-model="search_value" class="search" size="small">
 <template #append>
   <el-button class="el-icon-search" size="small"></el-button>
 </template>
@@ -32,27 +32,41 @@
         <el-table-column label="操作" width="200" align="center">
           <template #default="scope">
             <el-button size="mini" @click="edit.id=scope.row.id , edit.status = true">编辑</el-button>
-            <el-button type="danger" size="mini">删除</el-button>
+            <el-popconfirm title="确定删除吗？" confirmButtonText="确定"
+                           cancelButtonText="取消" @confirm="delArticle(scope.row.id)">
+              <template #reference>
+                <el-button type="danger" size="mini">删除</el-button>
+              </template>
+            </el-popconfirm>
+
           </template>
         </el-table-column>
 
       </el-table>
     </div>
 
-    <Edit :id="edit.id" :status="edit.status"></Edit>
+    <Edit :id="edit.id" :status="edit.status" :closed="()=>{edit.status = false}"></Edit>
+    <Add  :status="add.status" :closed="()=>{add.status = false}"></Add>
 
 
   </div>
 </template>
 <script>
 import Edit from '../../components/Article/Edit.vue'
+import Add from '../../components/Article/Add.vue'
+import {ElMessage} from 'element-plus'
 export default {
   data() {
     return {
+
+      add:{
+        status: false
+      },
       edit: {
         status: false,
         id: 0,
       },
+      search_value:'',
       article:[
         {
           id: 1,
@@ -90,9 +104,17 @@ export default {
   mounted() {
 
   },
-  methods: {},
+  methods: {
+    delArticle(id){
+      ElMessage.success({
+        message: '删除成功',
+
+      });
+    }
+  },
   components:{
-    Edit
+    Edit,
+    Add
   }
 }
 </script>

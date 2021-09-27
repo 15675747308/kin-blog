@@ -91,22 +91,14 @@ export default {
         },
         {
           id: 2,
-          title: '菜单2',
+          title: '系统设置',
           icon: 'document',
           sub: [
             {
               id: 1,
-              title: '菜单2-1',
+              title: '菜单管理',
               icon: 'document',
-              sub: [
-                {
-                  id: 1,
-                  title: 'Home',
-                  icon: 'document',
-                  path: '/',
-                  sub: []
-                }
-              ]
+              path: '/menu'
             }
           ]
         },

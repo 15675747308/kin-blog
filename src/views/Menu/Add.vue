@@ -20,6 +20,7 @@
                   :value="item.id"
 
               >
+
               </el-option>
             </el-select>
           </el-form-item>
@@ -92,17 +93,23 @@ export default {
     }
   },
   methods:{
-    formatMenu(menu, level = 1){
+    formatMenu(menu, prefix = '├'){
       let list = [];
       menu.forEach( (value, index, array) => {
         console.log(value);
+
+        if(prefix === '├'){
+          var titles = value.title;
+        } else {
+          var titles = prefix + ' ' + value.title;
+        }
+
         list.push({
-         title: prefix + value.title,
-         id: value.id,
-         level: level
+         title: titles,
+         id: value.id
         })
         if(value.sub) {
-          list.push(...this.formatMenu(value.sub, 1+level));
+          list.push(...this.formatMenu(value.sub, prefix + '─'));
         }
 
 

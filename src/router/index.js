@@ -28,6 +28,16 @@ const routes = [
     path: '/menu',
     name: 'menu',
     component: () => import('@/views/Menu/Index')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('@/views/Admin/Index.vue')
+  },
+  {
+    path: '/group',
+    name: 'group',
+    component: () => import('@/views/Group/Index.vue')
   }
 ];
 

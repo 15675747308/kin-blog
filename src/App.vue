@@ -91,15 +91,33 @@ export default {
         },
         {
           id: 2,
-          title: '系统设置',
+          title: '权限管理',
           icon: 'document',
           sub: [
             {
-              id: 1,
+              id: 3,
               title: '菜单管理',
               icon: 'document',
               path: '/menu'
-            }
+            },
+            {
+              id: 4,
+              title: '管理员管理',
+              icon: 'document',
+              path: '/admin'
+            },
+            {
+              id: 5,
+              title: '系统日志',
+              icon: 'document',
+              path: '/menu'
+            },
+            {
+              id: 6,
+              title: '角色组',
+              icon: 'document',
+              path: '/group'
+            },
           ]
         },
       ]

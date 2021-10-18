@@ -3,7 +3,7 @@
     <el-dialog
         title="添加标题"
         v-model="status"
-        width="50%"
+        width="30%"
     >
       <div class="body">
         <el-form ref="form" :model="form" label-width="80px">
@@ -23,6 +23,24 @@
 
               </el-option>
             </el-select>
+          </el-form-item>
+          <el-form-item label="地址">
+            <el-input v-model="form.url" placeholder="url地址"></el-input>
+          </el-form-item>
+          <el-form-item label="标题">
+            <el-input v-model="form.title" placeholder="标题"></el-input>
+          </el-form-item>
+          <el-form-item label="图标">
+            <el-input v-model="form.icon" placeholder="请输入图标class"></el-input>
+          </el-form-item>
+          <el-form-item label="权重">
+            <el-input v-model="form.weights" placeholder="权重"></el-input>
+          </el-form-item>
+          <el-form-item label="状态">
+            <el-input v-model="form.status" placeholder="状态"></el-input>
+          </el-form-item>
+          <el-form-item label="备注">
+            <el-input v-model="form.remark" placeholder="备注"></el-input>
           </el-form-item>
         </el-form>
       </div>
@@ -44,7 +62,7 @@ export default {
   data(){
     return {
       form:{
-        type: 1
+        type: '1'
       },
       menuList: [
         {

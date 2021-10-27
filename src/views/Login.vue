@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import Login from "@/../util/api/login.js"
+
 export default {
   data(){
     return {
@@ -38,7 +40,8 @@ export default {
   methods: {
     login(){
     //  console.log('name:', this.name, '; pwd:' , this.pwd);
-      this.$router.push('/')
+      Login.login()
+      //this.$router.push('/')
     },
   }
 }
